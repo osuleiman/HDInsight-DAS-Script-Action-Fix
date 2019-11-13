@@ -14,7 +14,6 @@ then
 else
     echo "${HOSTNAME}: Ambari is running. Proceed ahead."
 fi
-sudo ambari-server restart
 
 CLUSTERNAME=$(echo -e "import hdinsight_common.ClusterManifestParser as ClusterManifestParser\nprint ClusterManifestParser.parse_local_manifest().deployment.cluster_name" | python)
 echo "Cluster Name=$CLUSTERNAME"
