@@ -86,12 +86,11 @@ until [ ! $STATUSCODE -gt $SUCCESSCODE ] || [ $n -gt $RETRYCOUNT ]
 do
   STATUSCODE=$(curl --retry 5 --retry-delay 15 -u $USERID:$PASSWD -H "X-Requested-By: ambari" -i -X PUT -d '{"ServiceInfo": {"state" : "STARTED"}, "RequestInfo": {"context": "Start Data Analytics Studio"}}' --silent --write-out %{http_code} --output /tmp/response.txt https://$CLUSTERNAME-int.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/DATA_ANALYTICS_STUDIO)
   if ! test $STATUSCODE -gt $SUCCESSCODE; then
-      sleep 10s
+      sleep 60s
       break
   else
       n=$[$n+1]
   fi
-  sleep 30s
 done
 
 if [ "$SECURE_CLUSTER" == "true" ]
