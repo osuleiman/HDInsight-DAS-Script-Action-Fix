@@ -78,6 +78,8 @@ fi
 curl --retry 5 --retry-delay 15 -u $USERID:$PASSWD -H "X-Requested-By: ambari" -i -X PUT -d '{"ServiceInfo": {"state" : "INSTALLED"}, "RequestInfo": {"context": "Install Data Analytics Studio"}}' https://$CLUSTERNAME-int.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/DATA_ANALYTICS_STUDIO
 sleep 20s
 curl --retry 5 --retry-delay 15 -u $USERID:$PASSWD -H "X-Requested-By: ambari" -i -X PUT -d '{"ServiceInfo": {"state" : "INSTALLED"}, "RequestInfo": {"context": "Install Data Analytics Studio"}}' https://$CLUSTERNAME-int.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/DATA_ANALYTICS_STUDIO
+sleep 20s
+curl --retry 5 --retry-delay 15 -u $USERID:$PASSWD -H "X-Requested-By: ambari" -i -X PUT -d '{"ServiceInfo": {"state" : "INSTALLED"}, "RequestInfo": {"context": "Install Data Analytics Studio"}}' https://$CLUSTERNAME-int.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/DATA_ANALYTICS_STUDIO
 
 sleep 120s
 #start DATA ANALYTICS STUDO, retry 3 times if fails
