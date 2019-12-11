@@ -6,6 +6,7 @@ sudo echo "deb http://s3.amazonaws.com/dev.hortonworks.com/DAS/ubuntu16/1.x/BUIL
 sudo apt-get update && sudo /usr/bin/apt-get -o Dpkg::Options::=--force-confdef --allow-unauthenticated --assume-yes install data-analytics-studio-lite
 wget http://s3.amazonaws.com/dev.hortonworks.com/DAS/ubuntu16/1.x/BUILDS/1.0.1.1-13/tars/data_analytics_studio_lite/data-analytics-studio-mpack-1.0.1.1.0.1.1-13.tar.gz -O /tmp/data-analytics-studio-mpack.tar.gz
 sudo ambari-server install-mpack --mpack=/tmp/data-analytics-studio-mpack.tar.gz
+sleep 600s
 
 if [ -z $(sudo ambari-server status | grep -o "Ambari Server running") ]
 then
